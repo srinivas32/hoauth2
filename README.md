@@ -22,3 +22,5 @@ A lightweight oauth2 haskell binding.
 # Contribute
 
 Feel free send pull request or submit issue ticket.
+
+test
