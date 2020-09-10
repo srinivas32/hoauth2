@@ -1,6 +1,7 @@
 {-# LANGUAGE AllowAmbiguousTypes       #-}
 {-# LANGUAGE DeriveGeneric             #-}
 {-# LANGUAGE ExistentialQuantification #-}
+{-# LANGUAGE GADTs                     #-}
 {-# LANGUAGE OverloadedStrings         #-}
 {-# LANGUAGE RankNTypes                #-}
 {-# LANGUAGE TypeFamilies              #-}
@@ -50,13 +51,14 @@ class (IDP a) => HasUserReq a where
 
 -- Heterogenous collections
 -- https://wiki.haskell.org/Heterogenous_collections
---
-data IDPApp = forall a. (IDP a,
-                         HasTokenRefreshReq a,
-                         HasTokenReq a,
-                         HasUserReq a,
-                         HasLabel a,
-                         HasAuthUri a) => IDPApp a
+data IDPApp where
+  IDPApp :: (IDP a,
+            HasTokenRefreshReq a,
+            HasTokenReq a,
+            HasUserReq a,
+            HasLabel a,
+            HasAuthUri a)
+            => a -> IDPApp
 
 -- dummy oauth2 request error
 --

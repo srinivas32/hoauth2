@@ -1,29 +1,29 @@
 default: build
 
 clean:
-	cabal v2-clean
+	cabal new-clean
 
 create-keys:
 	test -e example/Keys.hs || cp example/Keys.hs.sample example/Keys.hs
 
 build:
-	cabal v2-build --flag=test
+	cabal new-build --flag=test
 
 ## install ghcid globally: `cabal install ghcid`
 watch:
-	ghcid --command="cabal v2-repl ."
+	ghcid --command="cabal new-repl ."
 
 watch-demo:
-	ghcid --command="cabal v2-repl --flag=test demo-server"
+	ghcid --command="cabal new-repl --flag=test demo-server"
 
 build-demo:
-	cabal v2-build --flag=test demo-server
+	cabal new-build --flag=test demo-server
 
 repl-demo:
-	cabal v2-repl --flag=test demo-server
+	cabal new-repl --flag=test demo-server
 
 start-demo:
-	cabal v2-exec --flag=test demo-server
+	cabal new-exec --flag=test demo-server
 
 rebuild: clean build
 
@@ -34,10 +34,10 @@ hlint:
 	hlint . --report
 
 doc: build
-	cabal v2-haddock
+	cabal new-haddock
 
 dist: rebuild
-	cabal v2-sdist
+	cabal new-sdist
 
 ## Maybe use hpack?
 cabal2nix:
