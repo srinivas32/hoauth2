@@ -100,3 +100,12 @@ zohoKey = OAuth2 { oauthClientId = "xxx"
                     , oauthOAuthorizeEndpoint = [uri|https://accounts.zoho.com/oauth/v2/auth|]
                     , oauthAccessTokenEndpoint = [uri|https://accounts.zoho.com/oauth/v2/token|]
                     }
+
+jiraKey :: OAuth2
+jiraKey :: OAuth2
+  { oauthClientId = "xxx"
+  , oauthClientSecret = Just "xxx"
+  , oauthCallback = Just [uri|http://localhost:9988/oauth2/callback|]
+  , oauthOAuthorizeEndpoint = [uri|https://auth.atlassian.com/authorize|]
+  , oauthAccessTokenEndpoint = [uri|https://auth.atlassian.com/oauth/token|]
+  }

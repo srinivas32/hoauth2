@@ -15,6 +15,7 @@ import qualified IDP.Okta            as IOkta
 import qualified IDP.StackExchange   as IStackExchange
 import qualified IDP.Weibo           as IWeibo
 import qualified IDP.ZOHO            as IZOHO
+import qualified IDP.Jira            as IJira
 import           Session
 import           Types
 
@@ -32,6 +33,7 @@ idps = [ IDPApp IAzureAD.AzureAD
        , IDPApp IStackExchange.StackExchange
        , IDPApp IWeibo.Weibo
        , IDPApp IZOHO.ZOHO
+       , IDPApp IJira.Jira
        ]
 
 initIdps :: CacheStore -> IO ()

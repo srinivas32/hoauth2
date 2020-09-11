@@ -46,6 +46,7 @@ Extra-source-files: README.md
                     example/IDP/Fitbit.hs
                     example/IDP/Douban.hs
                     example/IDP/Linkedin.hs
+                    example/IDP/Jira.hs
                     example/IDP.hs
                     example/App.hs
                     example/Session.hs
@@ -61,9 +62,9 @@ Source-Repository head
   Type:     git
   Location: git://github.com/freizl/hoauth2.git
 
-Flag test
-  Description: Build the executables
-  Default: False
+-- Flag test
+--   Description: Build the executables
+--   Default: False
 
 Library
   hs-source-dirs:   src
@@ -91,10 +92,10 @@ Library
                -fno-warn-unused-do-bind
 
 Executable demo-server
-  if flag(test)
-    Buildable: True
-  else
-    Buildable: False
+  -- if flag(test)
+  --   Buildable: True
+  -- else
+  --   Buildable: False
 
   main-is:             main.hs
   other-modules:       IDP,
@@ -111,6 +112,7 @@ Executable demo-server
                        IDP.Weibo
                        IDP.Linkedin
                        IDP.ZOHO
+                       IDP.Jira
                        Keys
                        Session
                        Types
