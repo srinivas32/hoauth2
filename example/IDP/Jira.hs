@@ -41,10 +41,10 @@ instance HasAuthUri Jira where
                                     , ("prompt", "consent")
                                     ]
 
-data JiraUser = JiraUser { email :: Text
-                         , name :: Text
+data JiraUser = JiraUser { email     :: Text
+                         , name      :: Text
                          , accountId :: Text
-                         , nickname :: Text
+                         , nickname  :: Text
                          } deriving (Show, Generic)
 
 instance FromJSON JiraUser where
