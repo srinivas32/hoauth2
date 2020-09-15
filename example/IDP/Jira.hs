@@ -38,6 +38,7 @@ instance HasAuthUri Jira where
   authUri _ = createCodeUri jiraKey [ ("state", "Jira.test-state-123")
                                     , ("scope", "offline_access read:jira-user read:jira-work read:me")
                                     , ("audience", "api.atlassian.com")
+                                    , ("prompt", "consent")
                                     ]
 
 data JiraUser = JiraUser { email :: Text
